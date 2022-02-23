@@ -55,7 +55,7 @@ Feature: Admin account
 
   Scenario: Exclusion of a non-admin user
     Given I am logged as an admin
-    And   There is a user Julius in the forum whose registered email is julius12345@gmail.com
+    And   There is a user Julius in the forum whose registered email is "julius12345@gmail.com"
     And   I am at the page of the discussion with question "How to print in Ruby?", made by Julius
     And   The only answer to the question is "This guy is asking "How to print in" questions for every language! He is trolling", made by Madeline
 
@@ -67,7 +67,7 @@ Feature: Admin account
     When  I search for a discussion with question "How to print in Ruby?"
     Then  A discussion with that name does not show up as a result
 
-    When  I try to create a new user account using the email julius12345@gmail.com
+    When  I try to create a new user account using the email "julius12345@gmail.com"
     Then  The forum will not allow me to do so
 
   Scenario: Fail to edit another admin's answer
