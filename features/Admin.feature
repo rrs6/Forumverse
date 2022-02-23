@@ -3,7 +3,7 @@ Feature: Admin account
   I want to be able to delete and edit threads, questions and answers of non-admin users, as well as delete non-admin users
   So that   I can have full control over the forum and make sure that all questions and answers follow the forum's policies and guidelines
 
-  # All mentioned users are non-admin users except when otherwise specified
+  # ALL MENTIONED USERS ARE NON-ADMIN USERS EXCEPT WHEN OTHERWISE SPECIFIED
 
   Scenario: Removal of an answer from an existing thread
     Given I am logged as an admin
