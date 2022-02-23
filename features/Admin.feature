@@ -77,3 +77,18 @@ Feature: Admin account
     When  I try to edit Kaori's answer
     Then  I can't edit because Kaori is an admin user
     And   The only answer to the question is still "Use the print function.", made by Kaori
+
+  Scenario: Fail to create admin account with an existing username
+    Given There is a registered user in the forum with username "Naomi" and email "IamNaomi@gmail.com"
+    And   I have asked the forum system to create a new admin account
+    When  I provide "Naomi" as the username of the admin account I'm trying to create
+    Then  The system won't let me create the admin account because the username "Naomi" is taken
+    And   There is still a registered user in the forum with username "Naomi" and email "IamNaomi@gmail.com"
+    And   There is no admin account with username "Naomi" registered in the forum
+
+  Scenario: Fail to create admin account with an existing username of an admin
+    Given There is a registered admin user in the forum with username "Kasa" and email "IamKasa@gmail.com"
+    And   I have asked the forum system to create a new admin account
+    When  I provide "Kasa" as the username of the admin account I'm trying to create
+    Then  The system won't let me create the admin account because the username "Kasa" is taken
+    And   There is only one admin account with username "Kasa" in the forum, and its email is "IamKasa@gmail.com"
