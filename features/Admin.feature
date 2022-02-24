@@ -92,3 +92,15 @@ Feature: Admin account
     When  I provide "Kasa" as the username of the admin account I'm trying to create
     Then  The system won't let me create the admin account because the username "Kasa" is taken
     And   There is still only one admin account with username "Kasa" in the forum, and its email is "IamKasa@gmail.com"
+
+  Scenario: Successful creation of admin account
+    Given There is no registered user in the forum with username "Sora", be it admin or non-admin
+    When  I ask the forum system to create a new admin account with username "Sora", email "SoraAmI@gmail.com" and password "SoraMeansSky"
+    Then  The system acknowledges successful admin account creation
+
+    When  I go to the forum's authentication page
+    And   I input "Sora" for the username, "SoraAmI@gmail.com" for the email and "SoraMeansSky" for the password
+    Then  I am able to authenticate successfully
+    And   I am at the forum's initial page
+    And   I can see my account is an admin account
+
