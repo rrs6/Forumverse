@@ -93,3 +93,30 @@ Feature: Admin account
     Then  The system won't let me create the admin account because the username "Kasa" is taken
     And   There is still only one admin account with username "Kasa" in the forum
     And   Its email is "IamKasa@gmail.com"
+
+  Scenario: Successful creation of admin account
+    Given There is no registered user in the forum with username "Sora", be it admin or non-admin
+    When  I ask the forum system to create a new admin account with username "Sora", email "SoraAmI@gmail.com" and password "SoraMeansSky"
+    Then  The system acknowledges successful admin account creation
+
+    When  I go to the forum's authentication page
+    And   I input "Sora" for the username, "SoraAmI@gmail.com" for the email and "SoraMeansSky" for the password
+    Then  I am able to authenticate successfully
+    And   I am at the forum's initial page
+    And   I can see my account is an admin account
+
+  Scenario: 'Admin' flag on admin answer
+    Given There is an admin user Junia in the forum with email "JuniaWhoAreYa@gmail.com" and password "IamALiar"
+    And   I am logged as the admin user Junia
+    And   I am at the page of the discussion with question "How to print in C?", made by user Johnathan
+    And   The only answer to the question is "I don't know, let's see what an admin says", made by user Joice
+
+    When  I answer "I don't know, let's see what a non-admin says"
+    Then  I can see my answer "I don't know, let's see what a non-admin says" below Joice's answer
+    And   I can see a label along with my answer telling I am an admin
+
+    When  I log in with a non-admin account
+    And   I go to the page of the discussion with question "How to print in C?", made by user Johnathan
+    Then  The first answer to the question is "I don't know, let's see what an admin says", made by user Joice
+    And   The second and last answer to the question is "I don't know, let's see what a non-admin says", made by Junia
+    And   I can see a label along with Junia's answer telling Junia is an admin
