@@ -91,4 +91,4 @@ Feature: Admin account
     And   I have asked the forum system to create a new admin account
     When  I provide "Kasa" as the username of the admin account I'm trying to create
     Then  The system won't let me create the admin account because the username "Kasa" is taken
-    And   There is only one admin account with username "Kasa" in the forum, and its email is "IamKasa@gmail.com"
+    And   There is still only one admin account with username "Kasa" in the forum, and its email is "IamKasa@gmail.com"
