@@ -79,7 +79,7 @@ Feature: Admin account
     And   The only answer to the question is still "Use the print function.", made by Kaori
 
   Scenario: Fail to create admin account with an existing username
-    Given There is a registered user in the forum with username "Naomi" and email "IamNaomi@gmail.com"
+    Given There is a registered user in the forum with username "Naomi", email "IamNaomi@gmail.com" and password "Jun'ichirou"
     And   I have asked the forum system to create a new admin account
     When  I provide "Naomi" as the username of the admin account I'm trying to create
     Then  The system won't let me create the admin account because the username "Naomi" is taken
@@ -87,7 +87,7 @@ Feature: Admin account
     And   There is no admin account with username "Naomi" registered in the forum
 
   Scenario: Fail to create admin account with an existing username of an admin
-    Given There is a registered admin user in the forum with username "Kasa" and email "IamKasa@gmail.com"
+    Given There is a registered admin user in the forum with username "Kasa", email "IamKasa@gmail.com" and password "KasaMeansUmbrella"
     And   I have asked the forum system to create a new admin account
     When  I provide "Kasa" as the username of the admin account I'm trying to create
     Then  The system won't let me create the admin account because the username "Kasa" is taken
