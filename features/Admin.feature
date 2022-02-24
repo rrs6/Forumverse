@@ -117,5 +117,5 @@ Feature: Admin account
     When  I log in with a non-admin account
     And   I go to the page of the discussion with question "How to print in C?", made by user Johnathan
     Then  The first answer to the question is "I don't know, let's see what an admin says", made by user Joice
-    And   The second and last answer to the question is "I don't know, let's see what a non-admin says", made by Junia
+    And   The second and last answer is "I don't know, let's see what a non-admin says", made by Junia
     And   I can see a label along with Junia's answer telling Junia is an admin
