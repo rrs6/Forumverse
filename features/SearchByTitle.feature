@@ -18,9 +18,4 @@ Scenario: Search for a publication based on the title, which was found
  And   I select the option “Search”.
  Then  On the same screen, the system displays a message indicating that the system does not contain any publications with the title.
 
- Scenario: View grouped by topic.
- Given I'm on the screen showing the mailing lists: Crisis of 29, with topic Politics, World Cup of 98, with topic Football, and Russian Revolution with topic Politics.
- And   I see the option to 'sort by topic'.
- When  I choose the option to 'sort by topic'.
- Then  On the same screen, the system displays the mailing list grouping Crisis of 29 and Russian Revolution and World Cup of 98, appears separate in relation to the other two.
 
