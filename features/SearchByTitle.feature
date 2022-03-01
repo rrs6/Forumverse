@@ -21,6 +21,6 @@ Scenario: Search for a publication based on the title, which was found
 Scenario: Searching for a publication based on the empty title.
  Given I'm on the screen that allows searching for a publication by title.
  And   I see the title field to be filled in.
- And   There are two publications titled “Electric Cars” and “World War I”, stored in the system.
+ And   There are two publications titled “Vikings” and “World War I”, stored in the system.
  When  I select the option “Search”.
  Then  On the same screen, the system displays a message indicating that it is necessary to enter a title for the search.
